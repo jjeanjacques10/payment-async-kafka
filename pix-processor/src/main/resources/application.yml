@@ -8,9 +8,8 @@ spring:
     template:
       default-topic: payment-topic
     properties:
-      schema:
-        registry:
-          url: http://localhost:8082
+      schema.registry.url: http://localhost:8082
+      auto.register.schemas: true # Whether schemas that do not yet exist should be registered
   datasource:
     driver-class-name: ${DB_DRIVER:org.h2.Driver}
     username: ${DB_USERNAME:sa}
