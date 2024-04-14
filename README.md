@@ -7,6 +7,7 @@ This is a payment system that utilizes Kafka technology for asynchronous integra
 ## Technologies
 
 - Java 21
+- Kotlin
 - Spring Boot
 - Kafka
 - Docker
