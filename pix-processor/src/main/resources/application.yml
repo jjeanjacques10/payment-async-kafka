@@ -1,0 +1,25 @@
+spring:
+  application.name: pix-processor
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    template:
+      default-topic: payment-topic
+    properties:
+      schema:
+        registry:
+          url: http://localhost:8082
+  datasource:
+    driver-class-name: ${DB_DRIVER:org.h2.Driver}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:password}
+    url: ${DB_ULR:jdbc:h2:mem:mydb}
+  jpa:
+    defer-datasource-initialization: true
+    properties.hibernate.format_sql: true
+    generate-ddl: true
+    hibernate.ddl.auto: update
+    database-platform: ${DB_DIALECT:org.hibernate.dialect.H2Dialect}
+    properties.hibernate.hbm2ddl.import_files: sql/populate-database.sql
