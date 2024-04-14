@@ -5,10 +5,15 @@ import java.math.BigDecimal
 import java.time.LocalDateTime
 
 data class Transaction(
-    val value: BigDecimal,
-    val key: String,
-    val keyType: KeyType,
-    val createdAt: LocalDateTime
+    var value: BigDecimal,
+    var origin: Origin,
+    var destination: Destination,
+    var createdAt: LocalDateTime
 ) {
-    constructor() : this(BigDecimal.ZERO, "", KeyType.EVP, LocalDateTime.now())
+    constructor() : this(
+        BigDecimal.ZERO,
+        Origin("", "", ""),
+        Destination("", KeyType.EVP),
+        LocalDateTime.now()
+    )
 }

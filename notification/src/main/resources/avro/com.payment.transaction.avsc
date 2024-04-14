@@ -3,9 +3,53 @@
   "name": "TransactionItem",
   "namespace": "com.payment",
   "fields": [
-    { "name": "value", "type": "string" },
-    { "name": "key", "type": "string" },
-    { "name": "keyType", "type": "string" },
-    { "name": "createdAt", "type": "string" }
+    {
+      "name": "value",
+      "type": "string"
+    },
+    {
+      "name": "origin",
+      "type": {
+        "type": "record",
+        "name": "Origin",
+        "fields": [
+          {
+            "name": "agency",
+            "type": "string"
+          },
+          {
+            "name": "account",
+            "type": "string"
+          },
+          {
+            "name": "dac",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "destination",
+      "type": {
+        "type": "record",
+        "name": "Destination",
+        "fields": [
+          {
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "name": "keyType",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "createdAt",
+      "type": {
+        "type": "string"
+      }
+    }
   ]
 }
