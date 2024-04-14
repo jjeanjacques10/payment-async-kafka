@@ -3,7 +3,6 @@ package com.payments.pixprocessor.adapter.output.kafka
 import com.payment.TransactionItem
 import com.payments.pixprocessor.domain.model.Transaction
 import com.payments.pixprocessor.domain.port.output.MessageProducer
-import com.payments.pixprocessor.domain.service.PixService
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Component
@@ -35,6 +34,6 @@ class PaymentKafkaProducer(
             transation.createdAt.toString()
         )
 
-    private val log = LoggerFactory.getLogger(PixService::class.java)
+    private val log = LoggerFactory.getLogger(PaymentKafkaProducer::class.java)
 
 }

@@ -1,0 +1,20 @@
+spring:
+  application.name: notification
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      group-id: notification-payment-group
+    listener:
+      ack-mode: MANUAL_IMMEDIATE
+    template:
+      default-topic: payment-topic
+    properties:
+      spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+      spring.deserializer.value.delegate.class: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      spring.deserializer.value.fail-on-unknown-type: false
+      spring.deserializer.value.type: io.confluent.kafka.serializers.subject.RecordNameStrategy
+      schema.registry.url: http://localhost:8082
+      specific.avro.reader: true # Deserialize to the generated Avro class rather than a GenericRecord type
+      auto.register.schemas: false # Whether schemas that do not yet exist should be registered

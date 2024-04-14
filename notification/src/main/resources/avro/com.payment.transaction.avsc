@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "TransactionItem",
+  "namespace": "com.payment",
+  "fields": [
+    { "name": "value", "type": "string" },
+    { "name": "key", "type": "string" },
+    { "name": "keyType", "type": "string" },
+    { "name": "createdAt", "type": "string" }
+  ]
+}
