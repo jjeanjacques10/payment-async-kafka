@@ -5,6 +5,7 @@ spring:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      acks: all # Configura o acks para "all" para garantir que todas as réplicas confirmem o recebimento da mensagem
     template:
       default-topic: payment-topic
     properties:

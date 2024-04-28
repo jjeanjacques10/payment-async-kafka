@@ -6,6 +6,8 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
       group-id: notification-payment-group
+      properties:
+        auto.offset.reset: earliest # ou 'latest'
     listener:
       ack-mode: MANUAL_IMMEDIATE
     template:
